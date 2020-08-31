@@ -160,17 +160,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             <p><a href="\(unwrappedAddress)">\(encoded)</a></p>
             """)
 
-        // FOR PLAIN TEXT: Remove http:// and https://
-        var friendlyAddress = String()
-        if unwrappedAddress.hasPrefix("http://") {
-            friendlyAddress = String(unwrappedAddress.dropFirst(7))
-        }
-        if unwrappedAddress.hasPrefix("https://") {
-            friendlyAddress = String(unwrappedAddress.dropFirst(8))
-        }
         let plainString = String("""
             \(unwrappedTitle)
-            \(friendlyAddress)
+            \(unwrappedAddress)
             """)
 
             completion(htmlString, plainString)
